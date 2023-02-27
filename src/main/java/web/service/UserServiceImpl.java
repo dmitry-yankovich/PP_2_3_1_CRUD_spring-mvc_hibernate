@@ -1,6 +1,7 @@
 package web.service;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import web.dao.UserDao;
 import web.models.User;
 
@@ -27,16 +28,19 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
+    @Transactional
     public void save(User user) {
         userDao.save(user);
     }
 
     @Override
+    @Transactional
     public void delete(long id) {
         userDao.delete(id);
     }
 
     @Override
+    @Transactional
     public void update(long id, User user) {
         userDao.update(id, user);
     }

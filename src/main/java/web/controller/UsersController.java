@@ -6,7 +6,6 @@ import org.springframework.validation.BindingResult;
 import javax.validation.Valid;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-//import org.springframework.web.bind.annotation.Va;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,10 +24,7 @@ public class UsersController {
     }
 
     @GetMapping
-    //public String index(@RequestParam(value = "count", required = false)Optional<Integer> count, Model model) {
-    public String index(@RequestParam(value = "count", required = false, defaultValue = "5") int count, Model model) {
-        //count = (!count.isPresent()) ? Optional.of(0) : count;
-        //model.addAttribute("cars", carService.carList(count.get()));
+    public String index(@RequestParam(value = "count", required = false, defaultValue = "0") int count, Model model) {
         model.addAttribute("users", userService.userList(count));
         return "users";
     }
